@@ -39,7 +39,7 @@ public class FriendsCustomAdapter extends ArrayAdapter<Friend> {
         final int _id = friend.getId();
         final String name = friend.getName();
         final String phone = friend.getPhone();
-        final String email = friend.getEmail():
+        final String email = friend.getEmail();
 
         ((TextView) view.findViewById(R.id.friend_name)).setText(name);
         ((TextView) view.findViewById(R.id.friend_phone)).setText(phone);
@@ -63,10 +63,10 @@ public class FriendsCustomAdapter extends ArrayAdapter<Friend> {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FriendsDialog dialog = new FriendsDialog;
+                FriendsDialog dialog = new FriendsDialog();
                 Bundle args = new Bundle();
                 args.putString(FriendsDialog.DIALOG_TYPE, FriendsDialog.DELETE_RECORD);
-                args.putString(FriendsContract.FriendsColumns.FRIENDS_ID,String.valueOf(_id));
+                args.putInt(FriendsContract.FriendsColumns.FRIENDS_ID,_id);
                 args.putString(FriendsContract.FriendsColumns.FRIENDS_NAME,name);
                 dialog.setArguments(args);
                 dialog.show(sFragmentManager,"delete-record");
